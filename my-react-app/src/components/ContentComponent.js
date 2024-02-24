@@ -4,7 +4,7 @@ function ContentComponent({ className, selectedFilesContents }) {
         <div className={className}>
             {selectedFilesContents.map((content, index) => (
                 <div key={index}>
-                    <p>index {content}</p>
+                    <p>index {content.text}</p>
                 </div>
             ))}
         </div>

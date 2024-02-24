@@ -44,34 +44,43 @@ const Sidebar = ({ selectedItem, setSelectedItem }) => {
     };
 
     const toggleSelection = (content) => {
-        if (selectedItem.includes(content.fileName)) {
-            setSelectedItem(selectedItem.filter(item => item !== content.fileName));
-        } else {
-            setSelectedItem([...selectedItem, content.fileName]);
-        }
+        const { fileName } = content;
+
+        setSelectedItem((prevSelected) => {
+            const isSelected = prevSelected.some(item => item.fileName === fileName);
+
+            if (isSelected) {
+                return prevSelected.filter(item => item.fileName !== fileName);
+            } else {
+                return [...prevSelected, content];
+            }
+        });
     };
 
     return (
         <div className="sidebar" onDragOver={onDragOver}>
-            {fileContents.map((content, index) => (
-                <div
-                    key={index}
-                    className={`list-item ${dropTarget === content.fileName ? "drop-target" : ""}  `}
-                    onDrop={(e) => onDrop(e, content.fileName)}
-                    onDragOver={onDragOver}
-                    onDragEnter={(e) => onDragEnter(e, content.fileName)}
-                    onDragLeave={onDragLeave}
-                    onClick={() => toggleSelection(content)}
-                >
-                    <Card
-                        className={selectedItem.includes(content.fileName) ? "selected" : ""}
-                        id={content.fileName}
-                        title={content.fileName}
-                        content={content.text}
-                        onDragStart={onDragStart}
-                    />
-                </div>
-            ))}
+            {fileContents.map((content, index) => {
+                const isSelected = selectedItem.some(item => item.fileName === content.fileName);
+
+                return (
+                    <div
+                        key={index}
+                        className={`list-item ${dropTarget === content.fileName ? "drop-target" : ""} ${isSelected ? "selected" : ""}`}
+                        onDrop={(e) => onDrop(e, content.fileName)}
+                        onDragOver={onDragOver}
+                        onDragEnter={(e) => onDragEnter(e, content.fileName)}
+                        onDragLeave={onDragLeave}
+                        onClick={() => toggleSelection(content)}
+                    >
+                        <Card
+                            className={isSelected ? "selected" : ""}
+                            fileName={content.fileName}
+                            content={content.text}
+                            onDragStart={onDragStart}
+                        />
+                    </div>
+                );
+            })}
         </div>
     );
 };
