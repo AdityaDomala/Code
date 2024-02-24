@@ -1,0 +1,73 @@
+/* styles.css */
+
+body {
+    font-family: sans-serif;
+    margin: 0; /* Remove default margin for full-page layout */
+  }
+  
+  #container {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Occupy full width */
+  }
+  
+  #document-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #document-list li {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    margin-bottom: -1px; /* remove double border */
+    background-color: #fff;
+    cursor: pointer;
+  }
+
+  #document-list li.selected {
+  background-color: #e0e0e0;
+  color: #333;
+}
+  
+  #workspace {
+    flex: 1; /* Take up remaining space in container */
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    padding: 20px;
+    min-height: 150px; /* Ensure minimum height for text */
+    overflow-y: auto; /* Scroll if content exceeds height */
+    background-color: #f9f9f9;
+  }
+  
+  h2 {
+    margin-bottom: 10px;
+  }
+
+
+/* Individual document content styles */
+#workspace div {
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  background-color: #fff;
+}
+
+/* Document title styles */
+#workspace h3 {
+  margin-top: 0;
+}
+
+.draggable-document {
+  cursor: grab;
+}
+
+.draggable-document:active {
+  cursor: grabbing;
+}
+
+/* Style for the document being dragged */
+.draggable-document.dragging {
+  opacity: 0.5;
+}
