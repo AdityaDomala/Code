@@ -2,10 +2,6 @@
     border-top: 2px solid blue; /* Blue line indicator */
 }
 
-.selected {
-    background-color: #dc5a5a; /* Gray background for selected items */
-}
-
 .list-item {
     cursor: pointer;
 }
