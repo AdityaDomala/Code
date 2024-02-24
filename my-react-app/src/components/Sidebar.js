@@ -59,9 +59,11 @@ const Sidebar = ({ selectedItem, setSelectedItem }) => {
 
     return (
         <div className="sidebar" onDragOver={onDragOver}>
+            <div>
+                <h1> DocumentId's </h1>
+            </div>
             {fileContents.map((content, index) => {
                 const isSelected = selectedItem.some(item => item.fileName === content.fileName);
-
                 return (
                     <div
                         key={index}
