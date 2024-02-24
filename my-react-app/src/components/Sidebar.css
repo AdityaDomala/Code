@@ -1,3 +1,7 @@
 .drop-target {
     border-top: 2px solid blue; /* Blue line indicator */
 }
+
+.list-item {
+    cursor: pointer;
+}

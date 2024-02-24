@@ -1,14 +1,36 @@
-.container {
-  display: flex;
-  height: 100vh; /* Full height of the viewport */
+body,
+html {
+  height: 100%;
+  margin: 0;
 }
 
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+
 .sidebar {
-  flex: 1; /* 20% width */
-  background-color: #f0f0f0; /* Just for demonstration */
+  flex: 4;
+  height: 40%;
+  /* Take up 40% of the container */
+  overflow-y: auto;
 }
 
 .main-content {
-  flex: 4; /* 80% width */
-  background-color: #e0e0e0; /* Just for demonstration */
+  flex: 6;
+  /* Take up 60% of the container */
+  overflow: hidden;
+  overflow-y: auto;
+  background-color: #dcdcdc;
+  /* Add additional styling for main content if needed */
+}
+
+
+.container {
+  height: 100vh;
+  display: flex;
+  overflow-y: auto;
+  flex-direction: column;
 }
