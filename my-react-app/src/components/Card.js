@@ -1,13 +1,15 @@
-// src/components/Card.js (or Card.tsx if using TypeScript)
-
 import React from 'react';
-import './Card.css'; // Assuming you have a CSS file for styling
+import './Card.css'; // Your existing styling
 
-const Card = ({ title, content }) => {
+const Card = ({ title, content, onDragStart, id }) => {
     return (
-        <div className="card">
+        <div 
+            className="card" 
+            draggable 
+            onDragStart={(e) => onDragStart(e, id)}
+        >
             <h3>{title}</h3>
-            <p>{content}</p>
+            {/* <p>{content}</p> */}
         </div>
     );
 };

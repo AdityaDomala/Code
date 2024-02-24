@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Highlight the card being dragged */
+.dragging {
+  background-color: lightblue;
+  /* other styles for dragging */
+}
